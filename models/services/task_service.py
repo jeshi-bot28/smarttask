@@ -31,3 +31,7 @@ def filter_by_category(self, category):
 
 def filter_by_status(self, completed=True):
     return [t for t in self.tasks if t.completed == completed]
+class TaskService:
+    def __init__(self, storage):
+        self.storage = storage
+        self.tasks = self.storage.load()
