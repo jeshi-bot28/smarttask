@@ -27,3 +27,18 @@ for task in service.filter_by_category("School"):
 print("\nCOMPLETED TASKS:")
 for task in service.filter_by_status(True):
     print(task)
+
+
+from services.task_service import TaskService
+from storage.json_storage import JSONStorage
+
+storage = JSONStorage()
+service = TaskService(storage)
+
+service.add_task("Homework", "School")
+service.add_task("Workout", "Personal")
+
+service.mark_completed("Homework")
+
+for task in service.get_all_tasks():
+    print(task)
