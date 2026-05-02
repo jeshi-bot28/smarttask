@@ -25,3 +25,9 @@ def edit_task(self, old_title, new_title, new_category):
         if task.title == old_title:
             task.title = new_title
             task.category = new_category
+
+def filter_by_category(self, category):
+    return [t for t in self.tasks if t.category == category]
+
+def filter_by_status(self, completed=True):
+    return [t for t in self.tasks if t.completed == completed]
