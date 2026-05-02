@@ -1,19 +1,11 @@
-class Task:
-    def __init__(self, title, category):
-        self.title = title
-        self.category = category
-        self.completed = False
+from services.task_service import TaskService
 
-    def mark_completed(self):
-        self.completed = True
+service = TaskService()
 
+service.add_task("Homework", "School")
+service.add_task("Workout", "Personal")
 
-tasks = []
+service.mark_completed("Homework")
 
-tasks.append(Task("Homework", "School"))
-tasks.append(Task("Workout", "Personal"))
-
-tasks[0].mark_completed()
-
-for t in tasks:
-    print(t.title, t.category, t.completed)
+for task in service.get_all_tasks():
+    print(task)
